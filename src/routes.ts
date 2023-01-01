@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { CheckSubController } from "./controllers/haircut/CheckSubController";
 import { CreateHaircutController } from "./controllers/haircut/CreateHaircutController";
 import { ListHaircutController } from "./controllers/haircut/ListHaircutController";
 import { UpdateHaircutController } from "./controllers/haircut/UpdateHaircutController";
@@ -20,6 +21,7 @@ router.put("/users", isAuthenticated, new UpdateUserController().handle);
 router.post("/haircut", isAuthenticated, new CreateHaircutController().handle);
 router.get("/haircuts", isAuthenticated, new ListHaircutController().handle);
 router.put("/haircut", isAuthenticated, new UpdateHaircutController().handle);
+router.get("/haircut/check", isAuthenticated, new CheckSubController().handle);
 
 //________________________________________________________________________________//
 export { router };
