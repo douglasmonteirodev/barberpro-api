@@ -5,6 +5,7 @@ import { CreateHaircutController } from "./controllers/haircut/CreateHaircutCont
 import { DetailHaircutController as DetailHaircut } from "./controllers/haircut/DetailHaircutController";
 import { ListHaircutController } from "./controllers/haircut/ListHaircutController";
 import { UpdateHaircutController } from "./controllers/haircut/UpdateHaircutController";
+import { NewScheduleController } from "./controllers/shedule/NewScheduleController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
@@ -26,6 +27,10 @@ router.put("/haircut", isAuthenticated, new UpdateHaircutController().handle);
 router.get("/haircut/check", isAuthenticated, new CheckSubController().handle);
 router.get("/haircut/count", isAuthenticated, new CountHaircut().handle);
 router.get("/haircut/detail", isAuthenticated, new DetailHaircut().handle);
+
+// --- ROTAS SCHEDULE ---
+
+router.post("/schedule", isAuthenticated, new NewScheduleController().handle);
 
 //________________________________________________________________________________//
 export { router };
