@@ -5,6 +5,7 @@ import { CreateHaircutController } from "./controllers/haircut/CreateHaircutCont
 import { DetailHaircutController as DetailHaircut } from "./controllers/haircut/DetailHaircutController";
 import { ListHaircutController } from "./controllers/haircut/ListHaircutController";
 import { UpdateHaircutController } from "./controllers/haircut/UpdateHaircutController";
+import { FinishScheduleController as FinishSchedule } from "./controllers/shedule/FinishScheduleController";
 import { ListScheduleController } from "./controllers/shedule/ListScheduleController";
 import { NewScheduleController } from "./controllers/shedule/NewScheduleController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
@@ -33,6 +34,7 @@ router.get("/haircut/detail", isAuthenticated, new DetailHaircut().handle);
 
 router.post("/schedule", isAuthenticated, new NewScheduleController().handle);
 router.get("/schedule", isAuthenticated, new ListScheduleController().handle);
+router.delete("/schedule", isAuthenticated, new FinishSchedule().handle);
 
 //________________________________________________________________________________//
 export { router };
