@@ -65,3 +65,6 @@ class WebhooksController {
 }
 
 export { WebhooksController };
+
+//Comando para rodar webhooks
+//stripe listen --forward-to localhost:3333/webhooks

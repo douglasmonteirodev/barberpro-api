@@ -8,6 +8,7 @@ import { UpdateHaircutController } from "./controllers/haircut/UpdateHaircutCont
 import { FinishScheduleController as FinishSchedule } from "./controllers/shedule/FinishScheduleController";
 import { ListScheduleController } from "./controllers/shedule/ListScheduleController";
 import { NewScheduleController } from "./controllers/shedule/NewScheduleController";
+import { CreatePortalController as CreatePortal } from "./controllers/subscription/CreatePortalController";
 import { SubscribeController } from "./controllers/subscription/SubscribeController";
 import { WebhooksController } from "./controllers/subscription/WebhooksController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
@@ -42,5 +43,6 @@ router.delete("/schedule", isAuthenticated, new FinishSchedule().handle);
 
 router.post("/subscribe", isAuthenticated, new SubscribeController().handle);
 router.post("/webhooks", new WebhooksController().handle);
+router.post("/create-portal", isAuthenticated, new CreatePortal().handle);
 
 export { router };
