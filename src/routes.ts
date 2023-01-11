@@ -8,6 +8,7 @@ import { UpdateHaircutController } from "./controllers/haircut/UpdateHaircutCont
 import { FinishScheduleController as FinishSchedule } from "./controllers/shedule/FinishScheduleController";
 import { ListScheduleController } from "./controllers/shedule/ListScheduleController";
 import { NewScheduleController } from "./controllers/shedule/NewScheduleController";
+import { SubscribeController } from "./controllers/subscription/SubscribeController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
@@ -36,5 +37,8 @@ router.post("/schedule", isAuthenticated, new NewScheduleController().handle);
 router.get("/schedule", isAuthenticated, new ListScheduleController().handle);
 router.delete("/schedule", isAuthenticated, new FinishSchedule().handle);
 
-//________________________________________________________________________________//
+// --- ROTAS SUBSCRIPTION
+
+router.post("/subscribe", isAuthenticated, new SubscribeController().handle);
+
 export { router };
