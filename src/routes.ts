@@ -1,4 +1,4 @@
-import { Router } from "express";
+import express, { Router } from "express";
 import { CheckSubController } from "./controllers/haircut/CheckSubController";
 import { CountHaircutController as CountHaircut } from "./controllers/haircut/CountHaircutController";
 import { CreateHaircutController } from "./controllers/haircut/CreateHaircutController";
@@ -42,7 +42,11 @@ router.delete("/schedule", isAuthenticated, new FinishSchedule().handle);
 // --- ROTAS SUBSCRIPTION
 
 router.post("/subscribe", isAuthenticated, new SubscribeController().handle);
-router.post("/webhooks", new WebhooksController().handle);
+router.post(
+  "/webhooks",
+  express.raw({ type: "application/json" }),
+  new WebhooksController().handle
+);
 router.post("/create-portal", isAuthenticated, new CreatePortal().handle);
 
 export { router };
