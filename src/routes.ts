@@ -9,6 +9,7 @@ import { FinishScheduleController as FinishSchedule } from "./controllers/shedul
 import { ListScheduleController } from "./controllers/shedule/ListScheduleController";
 import { NewScheduleController } from "./controllers/shedule/NewScheduleController";
 import { SubscribeController } from "./controllers/subscription/SubscribeController";
+import { WebhooksController } from "./controllers/subscription/WebhooksController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
@@ -40,5 +41,6 @@ router.delete("/schedule", isAuthenticated, new FinishSchedule().handle);
 // --- ROTAS SUBSCRIPTION
 
 router.post("/subscribe", isAuthenticated, new SubscribeController().handle);
+router.post("/webhooks", new WebhooksController().handle);
 
 export { router };
